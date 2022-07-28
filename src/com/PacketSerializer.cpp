@@ -91,10 +91,15 @@ namespace plug::com
         {
             switch (effect)
             {
+                case effects::RANGER_BOOST:
+                case effects::GREENBOX:
                 case effects::OVERDRIVE:
+                case effects::FUZZ:
+                case effects::ORANGEBOX:
+                case effects::BLACKBOX:
+                case effects::BIG_FUZZ:
                 case effects::WAH:
                 case effects::TOUCH_WAH:
-                case effects::FUZZ:
                 case effects::FUZZ_TOUCH_WAH:
                 case effects::SIMPLE_COMP:
                 case effects::COMPRESSOR:
@@ -230,7 +235,7 @@ namespace plug::com
         payload.setCabinet(plug::value(value.cabinet));
         payload.setSag(clampToRange<std::uint8_t, 0x02>(value.sag));
         payload.setBrightness(value.brightness);
-        payload.setUnknown(0x80, 0x80, 0x01);
+        payload.setUnknown(0x80, 0x80, 0x01); // 0x81, 0x81 ?
 
         if (value.noise_gate == 0x05)
         {
@@ -244,9 +249,24 @@ namespace plug::com
 
         switch (value.amp_num)
         {
+            case amps::STUDIO_PREAMP:
+                payload.setModel(0xf1);
+                payload.setUnknownAmpSpecific(0x0d, 0x0d, 0x0d, 0x0d, 0xf6);
+                break;
+
+            case amps::FENDER_57_CHAMP:
+                payload.setModel(0x7c);
+                payload.setUnknownAmpSpecific(0x0c, 0x0c, 0x0c, 0x0c, 0xf1);
+                break;
+
             case amps::FENDER_57_DELUXE:
                 payload.setModel(0x67);
                 payload.setUnknownAmpSpecific(0x01, 0x01, 0x01, 0x01, 0x53);
+                break;
+
+            case amps::FENDER_57_TWIN:
+                payload.setModel(0xf6);
+                payload.setUnknownAmpSpecific(0x0e, 0x0e, 0x0e, 0x0e, 0xf9);
                 break;
 
             case amps::FENDER_59_BASSMAN:
@@ -254,9 +274,9 @@ namespace plug::com
                 payload.setUnknownAmpSpecific(0x02, 0x02, 0x02, 0x02, 0x67);
                 break;
 
-            case amps::FENDER_57_CHAMP:
-                payload.setModel(0x7c);
-                payload.setUnknownAmpSpecific(0x0c, 0x0c, 0x0c, 0x0c, 0x00);
+            case amps::FENDER_65_PRINCETON:
+                payload.setModel(0x6a);
+                payload.setUnknownAmpSpecific(0x04, 0x04, 0x04, 0x04, 0x61);
                 break;
 
             case amps::FENDER_65_DELUXE_REVERB:
@@ -265,19 +285,19 @@ namespace plug::com
                 payload.setUnknown(0x00, 0x00, 0x01);
                 break;
 
-            case amps::FENDER_65_PRINCETON:
-                payload.setModel(0x6a);
-                payload.setUnknownAmpSpecific(0x04, 0x04, 0x04, 0x04, 0x61);
-                break;
-
             case amps::FENDER_65_TWIN_REVERB:
                 payload.setModel(0x75);
                 payload.setUnknownAmpSpecific(0x05, 0x05, 0x05, 0x05, 0x72);
                 break;
 
-            case amps::FENDER_SUPER_SONIC:
-                payload.setModel(0x72);
-                payload.setUnknownAmpSpecific(0x06, 0x06, 0x06, 0x06, 0x79);
+            case amps::_60S_THRIFT:
+                payload.setModel(0xf9);
+                payload.setUnknownAmpSpecific(0x0f, 0x0f, 0x0f, 0x0f, 0xfc);
+                break;
+
+            case amps::BRITISH_WATTS:
+                payload.setModel(0xff);
+                payload.setUnknownAmpSpecific(0x11, 0x11, 0x11, 0x11, 0x00);
                 break;
 
             case amps::BRITISH_60S:
@@ -293,6 +313,16 @@ namespace plug::com
             case amps::BRITISH_80S:
                 payload.setModel(0x5e);
                 payload.setUnknownAmpSpecific(0x09, 0x09, 0x09, 0x09, 0x5d);
+                break;
+
+            case amps::BRITISH_COLOUR:
+                payload.setModel(0xfc);
+                payload.setUnknownAmpSpecific(0x10, 0x10, 0x10, 0x10, 0xff);
+                break;
+
+            case amps::FENDER_SUPER_SONIC:
+                payload.setModel(0x72);
+                payload.setUnknownAmpSpecific(0x06, 0x06, 0x06, 0x06, 0x79);
                 break;
 
             case amps::AMERICAN_90S:
@@ -362,8 +392,32 @@ namespace plug::com
 
         switch (value.effect_num)
         {
+            case effects::RANGER_BOOST:
+                payload.setModel(0x03);
+                break;
+
+            case effects::GREENBOX:
+                payload.setModel(0xba);
+                break;
+
             case effects::OVERDRIVE:
                 payload.setModel(0x3c);
+                break;
+
+            case effects::FUZZ:
+                payload.setModel(0x1a);
+                break;
+
+            case effects::ORANGEBOX:
+                payload.setModel(0x10);
+                break;
+
+            case effects::BLACKBOX:
+                payload.setModel(0x11);
+                break;
+
+            case effects::BIG_FUZZ:
+                payload.setModel(0x0f);
                 break;
 
             case effects::WAH:
@@ -374,10 +428,6 @@ namespace plug::com
             case effects::TOUCH_WAH:
                 payload.setModel(0x4a);
                 payload.setUnknown(0x01, 0x08, 0x01);
-                break;
-
-            case effects::FUZZ:
-                payload.setModel(0x1a);
                 break;
 
             case effects::FUZZ_TOUCH_WAH:

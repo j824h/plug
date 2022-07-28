@@ -70,32 +70,44 @@ namespace plug
                 {
                     switch (m_xml->attributes().value("ID").toString().toInt())
                     {
-                        case 0x67:
-                            m_amp_settings->amp_num = amps::FENDER_57_DELUXE;
-                            break;
-
-                        case 0x64:
-                            m_amp_settings->amp_num = amps::FENDER_59_BASSMAN;
+                        case 0xf1:
+                            m_amp_settings->amp_num = amps::STUDIO_PREAMP;
                             break;
 
                         case 0x7c:
                             m_amp_settings->amp_num = amps::FENDER_57_CHAMP;
                             break;
 
-                        case 0x53:
-                            m_amp_settings->amp_num = amps::FENDER_65_DELUXE_REVERB;
+                        case 0x67:
+                            m_amp_settings->amp_num = amps::FENDER_57_DELUXE;
+                            break;
+
+                        case 0xf6:
+                            m_amp_settings->amp_num = amps::FENDER_57_TWIN;
+                            break;
+
+                        case 0x64:
+                            m_amp_settings->amp_num = amps::FENDER_59_BASSMAN;
                             break;
 
                         case 0x6a:
                             m_amp_settings->amp_num = amps::FENDER_65_PRINCETON;
                             break;
 
+                        case 0x53:
+                            m_amp_settings->amp_num = amps::FENDER_65_DELUXE_REVERB;
+                            break;
+
                         case 0x75:
                             m_amp_settings->amp_num = amps::FENDER_65_TWIN_REVERB;
                             break;
 
-                        case 0x72:
-                            m_amp_settings->amp_num = amps::FENDER_SUPER_SONIC;
+                        case 0xf9:
+                            m_amp_settings->amp_num = amps::_60S_THRIFT;
+                            break;
+
+                        case 0xff:
+                            m_amp_settings->amp_num = amps::BRITISH_WATTS;
                             break;
 
                         case 0x61:
@@ -108,6 +120,14 @@ namespace plug
 
                         case 0x5e:
                             m_amp_settings->amp_num = amps::BRITISH_80S;
+                            break;
+
+                        case 0xfc:
+                            m_amp_settings->amp_num = amps::BRITISH_COLOUR;
+                            break;
+
+                        case 0x72:
+                            m_amp_settings->amp_num = amps::FENDER_SUPER_SONIC;
                             break;
 
                         case 0x5d:
@@ -237,8 +257,32 @@ namespace plug
                             m_fx_settings[x].effect_num = effects::EMPTY;
                             break;
 
+                        case 0x03:
+                            m_fx_settings[x].effect_num = effects::RANGER_BOOST;
+                            break;
+
+                        case 0xba:
+                            m_fx_settings[x].effect_num = effects::GREENBOX;
+                            break;
+
                         case 0x3c:
                             m_fx_settings[x].effect_num = effects::OVERDRIVE;
+                            break;
+
+                        case 0x1a:
+                            m_fx_settings[x].effect_num = effects::FUZZ;
+                            break;
+
+                        case 0x10:
+                            m_fx_settings[x].effect_num = effects::ORANGEBOX;
+                            break;
+
+                        case 0x11:
+                            m_fx_settings[x].effect_num = effects::BLACKBOX;
+                            break;
+
+                        case 0x0f:
+                            m_fx_settings[x].effect_num = effects::BIG_FUZZ;
                             break;
 
                         case 0x49:
@@ -247,10 +291,6 @@ namespace plug
 
                         case 0x4a:
                             m_fx_settings[x].effect_num = effects::TOUCH_WAH;
-                            break;
-
-                        case 0x1a:
-                            m_fx_settings[x].effect_num = effects::FUZZ;
                             break;
 
                         case 0x1c:

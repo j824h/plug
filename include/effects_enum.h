@@ -29,16 +29,21 @@ namespace plug
     // list of all amplifiers
     enum class amps
     {
-        FENDER_57_DELUXE,
-        FENDER_59_BASSMAN,
+        STUDIO_PREAMP,
         FENDER_57_CHAMP,
-        FENDER_65_DELUXE_REVERB,
+        FENDER_57_DELUXE,
+        FENDER_57_TWIN,
+        FENDER_59_BASSMAN,
         FENDER_65_PRINCETON,
+        FENDER_65_DELUXE_REVERB,
         FENDER_65_TWIN_REVERB,
-        FENDER_SUPER_SONIC,
+        _60S_THRIFT,
+        BRITISH_WATTS,
         BRITISH_60S,
         BRITISH_70S,
         BRITISH_80S,
+        BRITISH_COLOUR,
+        FENDER_SUPER_SONIC,
         AMERICAN_90S,
         METAL_2000
     };
@@ -48,10 +53,15 @@ namespace plug
     enum class effects
     {
         EMPTY,
+        RANGER_BOOST,
+        GREENBOX,
         OVERDRIVE,
+        FUZZ,
+        ORANGEBOX,
+        BLACKBOX,
+        BIG_FUZZ,
         WAH,
         TOUCH_WAH,
-        FUZZ,
         FUZZ_TOUCH_WAH,
         SIMPLE_COMP,
         COMPRESSOR,

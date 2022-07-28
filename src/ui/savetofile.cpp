@@ -98,14 +98,32 @@ namespace plug
         int model{0};
         int something{0};
         int something2{0};
-        int something3{128};
+        int something3{128}; // 129?
 
         switch (static_cast<amps>(settings.amp_num))
         {
+            case amps::STUDIO_PREAMP:
+                model = 0xf1;
+                something = 0x0d;
+                something2 = 0xf6;
+                break;
+
+            case amps::FENDER_57_CHAMP:
+                model = 0x7c;
+                something = 0x0c;
+                something2 = 0xf1;
+                break;
+
             case amps::FENDER_57_DELUXE:
                 model = 0x67;
                 something = 0x01;
                 something2 = 0x53;
+                break;
+
+            case amps::FENDER_57_TWIN:
+                model = 0xf6;
+                something = 0x0e;
+                something2 = 0xf9;
                 break;
 
             case amps::FENDER_59_BASSMAN:
@@ -114,23 +132,17 @@ namespace plug
                 something2 = 0x67;
                 break;
 
-            case amps::FENDER_57_CHAMP:
-                model = 0x7c;
-                something = 0x0c;
-                something2 = 0x00;
+            case amps::FENDER_65_PRINCETON:
+                model = 0x6a;
+                something = 0x04;
+                something2 = 0x61;
                 break;
 
             case amps::FENDER_65_DELUXE_REVERB:
                 model = 0x53;
                 something = 0x03;
                 something2 = 0x6a;
-                something3 = 0x00;
-                break;
-
-            case amps::FENDER_65_PRINCETON:
-                model = 0x6a;
-                something = 0x04;
-                something2 = 0x61;
+                something3 = 0x00; // 0x01?
                 break;
 
             case amps::FENDER_65_TWIN_REVERB:
@@ -139,10 +151,15 @@ namespace plug
                 something2 = 0x72;
                 break;
 
-            case amps::FENDER_SUPER_SONIC:
-                model = 0x72;
-                something = 0x06;
-                something2 = 0x79;
+            case amps::_60S_THRIFT:
+                model = 0xf9;
+                something = 0x0f;
+                something2 = 0xfc;
+                break;
+
+            case amps::BRITISH_WATTS:
+                model = 0xff;
+                something = 0x11;
                 break;
 
             case amps::BRITISH_60S:
@@ -161,6 +178,18 @@ namespace plug
                 model = 0x5e;
                 something = 0x09;
                 something2 = 0x5d;
+                break;
+
+            case amps::BRITISH_COLOUR:
+                model = 0xfc;
+                something = 0x10;
+                something2 = 0xff;
+                break;
+
+            case amps::FENDER_SUPER_SONIC:
+                model = 0x72;
+                something = 0x06;
+                something2 = 0x79;
                 break;
 
             case amps::AMERICAN_90S:
@@ -416,8 +445,32 @@ namespace plug
                 model = 0x00;
                 break;
 
+            case effects::RANGER_BOOST:
+                model = 0x03;
+                break;
+
+            case effects::GREENBOX:
+                model = 0xba;
+                break;
+
             case effects::OVERDRIVE:
                 model = 0x3c;
+                break;
+
+            case effects::FUZZ:
+                model = 0x1a;
+                break;
+
+            case effects::ORANGEBOX:
+                model = 0x10;
+                break;
+
+            case effects::BLACKBOX:
+                model = 0x11;
+                break;
+
+            case effects::BIG_FUZZ:
+                model = 0x0f;
                 break;
 
             case effects::WAH:
@@ -426,10 +479,6 @@ namespace plug
 
             case effects::TOUCH_WAH:
                 model = 0x4a;
-                break;
-
-            case effects::FUZZ:
-                model = 0x1a;
                 break;
 
             case effects::FUZZ_TOUCH_WAH:

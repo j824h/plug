@@ -54,16 +54,11 @@
          <string>Allows you to choose amplifier to emulate</string>
         </property>
         <property name="maxVisibleItems">
-         <number>12</number>
+         <number>17</number>
         </property>
         <item>
          <property name="text">
-          <string>Fender '57 Deluxe</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Fender '59 Bassman</string>
+          <string>Studio Preamp</string>
          </property>
         </item>
         <item>
@@ -73,7 +68,17 @@
         </item>
         <item>
          <property name="text">
-          <string>Fender '65 Deluxe Reverb</string>
+          <string>Fender '57 Deluxe</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Fender '57 Twin</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Fender '59 Bassman</string>
          </property>
         </item>
         <item>
@@ -83,12 +88,22 @@
         </item>
         <item>
          <property name="text">
+          <string>Fender '65 Deluxe Reverb</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>Fender '65 Twin Reverb</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Fender Super-Sonic</string>
+          <string>'60s Thrift</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>British Watts</string>
          </property>
         </item>
         <item>
@@ -104,6 +119,16 @@
         <item>
          <property name="text">
           <string>British 80's</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>British Colour</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Fender Super-Sonic</string>
          </property>
         </item>
         <item>
