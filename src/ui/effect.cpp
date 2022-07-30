@@ -344,6 +344,52 @@ namespace plug
                 ui->spinBox_6->setDisabled(false);
                 break;
 
+            case effects::RANGER_BOOST:
+            case effects::GREENBOX:
+                ui->checkBox->setDisabled(false);
+                ui->dial->setMaximum(255);
+                ui->spinBox->setMaximum(255);
+                ui->dial_4->setMaximum(255);
+                ui->spinBox_4->setMaximum(255);
+                ui->dial_5->setValue(0);
+                ui->dial_6->setValue(0);
+                ui->dial->setDisabled(false);
+                ui->dial_2->setDisabled(false);
+                ui->dial_3->setDisabled(false);
+                ui->dial_4->setDisabled(false);
+                ui->dial_5->setDisabled(true);
+                ui->dial_6->setDisabled(true);
+                ui->spinBox->setDisabled(false);
+                ui->spinBox_2->setDisabled(false);
+                ui->spinBox_3->setDisabled(false);
+                ui->spinBox_4->setDisabled(false);
+                ui->spinBox_5->setDisabled(true);
+                ui->spinBox_6->setDisabled(true);
+                break;
+
+            case effects::ORANGEBOX:
+            case effects::BLACKBOX:
+            case effects::BIG_FUZZ:
+                ui->checkBox->setDisabled(false);
+                ui->dial->setMaximum(255);
+                ui->spinBox->setMaximum(255);
+                ui->dial_4->setValue(0);
+                ui->dial_5->setValue(0);
+                ui->dial_6->setValue(0);
+                ui->dial->setDisabled(false);
+                ui->dial_2->setDisabled(false);
+                ui->dial_3->setDisabled(false);
+                ui->dial_4->setDisabled(true);
+                ui->dial_5->setDisabled(true);
+                ui->dial_6->setDisabled(true);
+                ui->spinBox->setDisabled(false);
+                ui->spinBox_2->setDisabled(false);
+                ui->spinBox_3->setDisabled(false);
+                ui->spinBox_4->setDisabled(true);
+                ui->spinBox_5->setDisabled(true);
+                ui->spinBox_6->setDisabled(true);
+                break;
+
             default:
                 ui->checkBox->setDisabled(false);
                 ui->dial->setMaximum(255);
