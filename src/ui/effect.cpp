@@ -83,7 +83,7 @@ namespace plug
     Effect::Effect(QWidget* parent, std::uint8_t fxSlot)
         : QMainWindow(parent),
           ui(std::make_unique<Ui::Effect>()),
-          fx_slot(fxSlot),
+          fx_order(fxSlot),
           effect_num(effects::EMPTY),
           knob1(0),
           knob2(0),
@@ -91,7 +91,7 @@ namespace plug
           knob4(0),
           knob5(0),
           knob6(0),
-          position(Position::input),
+          fx_slot(fxSlot),
           enabled(true),
           changed(false)
     {
@@ -118,7 +118,7 @@ namespace plug
 
         // connect elements to slots
         connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(choose_fx(int)));
-        connect(ui->checkBox, SIGNAL(toggled(bool)), this, SLOT(set_post_amp(bool)));
+        // connect(ui->checkBox, SIGNAL(toggled(bool)), this, SLOT(set_post_amp(bool)));
         connect(ui->dial, SIGNAL(valueChanged(int)), this, SLOT(set_knob1(int)));
         connect(ui->dial_2, SIGNAL(valueChanged(int)), this, SLOT(set_knob2(int)));
         connect(ui->dial_3, SIGNAL(valueChanged(int)), this, SLOT(set_knob3(int)));
@@ -145,11 +145,6 @@ namespace plug
     }
 
     // functions setting variables
-    void Effect::set_post_amp(bool value)
-    {
-        position = (value == true ? Position::effectsLoop : Position::input);
-        set_changed(true);
-    }
 
     void Effect::set_knob1(int value)
     {
@@ -1953,7 +1948,6 @@ namespace plug
 
         pedal.effect_num = effect_num;
         pedal.fx_slot = fx_slot;
-        pedal.position = position;
         pedal.knob1 = knob1;
         pedal.knob2 = knob2;
         pedal.knob3 = knob3;
@@ -1976,14 +1970,13 @@ namespace plug
         ui->dial_4->setValue(settings.knob4);
         ui->dial_5->setValue(settings.knob5);
         ui->dial_6->setValue(settings.knob6);
-        ui->checkBox->setChecked(settings.position == Position::effectsLoop);
+        // ui->checkBox->setChecked(settings.position == Position::effectsLoop);
     }
 
     void Effect::get_settings(fx_pedal_settings& pedal)
     {
         pedal.effect_num = effect_num;
         pedal.fx_slot = fx_slot;
-        pedal.position = position;
         pedal.knob1 = knob1;
         pedal.knob2 = knob2;
         pedal.knob3 = knob3;

@@ -332,7 +332,7 @@ namespace plug
 
     void SaveToFile::manageWriteFX(fx_pedal_settings settings[4])
     {
-        fx_pedal_settings empty{0, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input};
+        fx_pedal_settings empty{0, effects::EMPTY, 0, 0, 0, 0, 0, 0, 0};
 
         xml->writeStartElement("FX");
 
@@ -614,7 +614,7 @@ namespace plug
                 break;
         }
 
-        const int position = (settings.position == Position::effectsLoop ? (settings.fx_slot + 4) : settings.fx_slot);
+        const int position = settings.fx_slot;
 
         xml->writeStartElement("Module");
         xml->writeAttribute("ID", QString("%1").arg(model));

@@ -1353,7 +1353,7 @@ namespace plug
 
     void DefaultEffects::get_settings()
     {
-        std::array<fx_pedal_settings, 4> settings_data{};
+        std::array<fx_pedal_settings, 8> settings_data{};
         dynamic_cast<MainWindow*>(parent())->get_settings(nullptr, settings_data.data());
 
         const std::size_t index = static_cast<std::size_t>(ui->comboBox_2->currentIndex());
@@ -1364,7 +1364,7 @@ namespace plug
         ui->dial_4->setValue(settings_data[index].knob4);
         ui->dial_5->setValue(settings_data[index].knob5);
         ui->dial_6->setValue(settings_data[index].knob6);
-        ui->checkBox->setChecked(settings_data[index].position == Position::effectsLoop);
+        // ui->checkBox->setChecked(settings_data[index].position == Position::effectsLoop);
     }
 
     void DefaultEffects::save_default_effects()

@@ -56,7 +56,7 @@ namespace plug
 
     struct fx_pedal_settings
     {
-        std::uint8_t fx_slot;
+        std::uint8_t fx_order;
         effects effect_num;
         std::uint8_t knob1;
         std::uint8_t knob2;
@@ -64,7 +64,7 @@ namespace plug
         std::uint8_t knob4;
         std::uint8_t knob5;
         std::uint8_t knob6;
-        Position position;
+        std::uint8_t fx_slot;
         bool enabled{true};
     };
 }

@@ -52,8 +52,10 @@ namespace plug
         void setTitleTexts(int slot, const QString& name);
         void setDialValues(int d1, int d2, int d3, int d4, int d5, int d6);
 
+        Position getPosition() const;
+
         const std::unique_ptr<Ui::Effect> ui;
-        std::uint8_t fx_slot;
+        std::uint8_t fx_order;
         effects effect_num;
         unsigned char knob1;
         unsigned char knob2;
@@ -61,7 +63,7 @@ namespace plug
         unsigned char knob4;
         unsigned char knob5;
         unsigned char knob6;
-        Position position;
+        std::uint8_t fx_slot;
         bool enabled;
         bool changed;
         QString temp1;
@@ -69,7 +71,6 @@ namespace plug
 
     public slots:
         // functions to set variables
-        void set_post_amp(bool);
         void set_knob1(int);
         void set_knob2(int);
         void set_knob3(int);

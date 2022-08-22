@@ -45,11 +45,6 @@ namespace plug::com
 
         constexpr std::uint8_t getSlot(const fx_pedal_settings& effect)
         {
-            if (effect.position == Position::effectsLoop)
-            {
-                constexpr std::uint8_t fxLoopOffset{4};
-                return effect.fx_slot + fxLoopOffset;
-            }
             return effect.fx_slot;
         }
 
@@ -178,13 +173,13 @@ namespace plug::com
         return settings;
     }
 
-    std::array<fx_pedal_settings, 4> decodeEffectsFromData(const std::array<Packet<EffectPayload>, 4>& packet)
+    std::array<fx_pedal_settings, 8> decodeEffectsFromData(const std::array<Packet<EffectPayload>, 4>& packet)
     {
-        std::array<fx_pedal_settings, 4> effects{{}};
+        std::array<fx_pedal_settings, 8> effects{{}};
 
         std::for_each(packet.cbegin(), packet.cend(), [&effects](const auto& p) {
             const auto payload = p.getPayload();
-            const auto slot = payload.getSlot() % 4;
+            const auto slot = payload.getSlot();
             effects[slot].fx_slot = slot;
             effects[slot].knob1 = payload.getKnob1();
             effects[slot].knob2 = payload.getKnob2();
@@ -192,7 +187,6 @@ namespace plug::com
             effects[slot].knob4 = payload.getKnob4();
             effects[slot].knob5 = payload.getKnob5();
             effects[slot].knob6 = payload.getKnob6();
-            effects[slot].position = (payload.getSlot() > 0x03 ? Position::effectsLoop : Position::input);
             effects[slot].effect_num = lookupEffectById(payload.getModel());
         });
 

@@ -208,7 +208,7 @@ namespace plug
     {
         QSettings settings;
         amp_settings amplifier_set{};
-        std::array<fx_pedal_settings, 4> effects_set{{}};
+        std::array<fx_pedal_settings, 8> effects_set{{}};
         QString name;
 
         ui->statusBar->showMessage(tr("Connecting..."));
@@ -659,9 +659,9 @@ namespace plug
 
         for (int i = 0; i < 4; i++)
         {
-            switch (effects_set[i].fx_slot)
+            switch (effects_set[i].fx_order)
             {
-                case 0x00:
+                case 0:
                     effect1->load(effects_set[i]);
                     if (connected)
                         effect1->send_fx();
@@ -670,7 +670,7 @@ namespace plug
                             effect1->show();
                     break;
 
-                case 0x01:
+                case 1:
                     effect2->load(effects_set[i]);
                     if (connected)
                         effect2->send_fx();
@@ -679,7 +679,7 @@ namespace plug
                             effect2->show();
                     break;
 
-                case 0x02:
+                case 2:
                     effect3->load(effects_set[i]);
                     if (connected)
                         effect3->send_fx();
@@ -688,7 +688,7 @@ namespace plug
                             effect3->show();
                     break;
 
-                case 0x03:
+                case 3:
                     effect4->load(effects_set[i]);
                     if (connected)
                         effect4->send_fx();

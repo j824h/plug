@@ -240,14 +240,7 @@ namespace plug
                 {
                     const int position = m_xml->attributes().value("POS").toString().toInt();
 
-                    if (position > 3)
-                    {
-                        m_fx_settings[x].position = Position::effectsLoop;
-                    }
-                    else
-                    {
-                        m_fx_settings[x].position = Position::input;
-                    }
+                    m_fx_settings[x].fx_slot = position;
 
                     fx_slots[position] = x + 1;
 
@@ -465,7 +458,7 @@ namespace plug
         {
             if (fx_slots[i] != 0)
             {
-                m_fx_settings[fx_slots[i] - 1].fx_slot = static_cast<std::uint8_t>(j);
+                m_fx_settings[fx_slots[i] - 1].fx_order = static_cast<std::uint8_t>(j);
                 ++j;
             }
         }
