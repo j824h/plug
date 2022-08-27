@@ -190,6 +190,15 @@ namespace plug::com
             effects[slot].effect_num = lookupEffectById(payload.getModel());
         });
 
+        for (int i = 0, j = 0; i < 8; ++i)
+        {
+            if (effects[i].fx_slot != 0)
+            {
+                effects[i].fx_order = static_cast<std::uint8_t>(j);
+                ++j;
+            }
+        }
+
         return effects;
     }
 

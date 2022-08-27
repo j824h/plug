@@ -252,36 +252,32 @@ namespace plug
         {
             amp->show();
         }
-        for (std::size_t i = 0; i < 4; i++)
+        for (std::size_t i = 0; i < 8; i++)
         {
-            switch (effects_set[i].fx_slot)
+            switch (effects_set[i].fx_order)
             {
-                case 0x00:
-                case 0x04:
+                case 0:
                     effect1->load(effects_set[i]);
                     if (effects_set[i].effect_num != effects::EMPTY)
                         if (settings.value("Settings/popupChangedWindows").toBool())
                             effect1->show();
                     break;
 
-                case 0x01:
-                case 0x05:
+                case 1:
                     effect2->load(effects_set[i]);
                     if (effects_set[i].effect_num != effects::EMPTY)
                         if (settings.value("Settings/popupChangedWindows").toBool())
                             effect2->show();
                     break;
 
-                case 0x02:
-                case 0x06:
+                case 2:
                     effect3->load(effects_set[i]);
                     if (effects_set[i].effect_num != effects::EMPTY)
                         if (settings.value("Settings/popupChangedWindows").toBool())
                             effect3->show();
                     break;
 
-                case 0x03:
-                case 0x07:
+                case 3:
                     effect4->load(effects_set[i]);
                     if (effects_set[i].effect_num != effects::EMPTY)
                         if (settings.value("Settings/popupChangedWindows").toBool())
@@ -484,36 +480,32 @@ namespace plug
             }
 
             const auto effects_set = signalChain.effects();
-            for (std::size_t i = 0; i < 4; i++)
+            for (std::size_t i = 0; i < 8; i++)
             {
-                switch (effects_set[i].fx_slot)
+                switch (effects_set[i].fx_order)
                 {
-                    case 0x00:
-                    case 0x04:
+                    case 0:
                         effect1->load(effects_set[i]);
                         if (effects_set[i].effect_num != effects::EMPTY)
                             if (settings.value("Settings/popupChangedWindows").toBool())
                                 effect1->show();
                         break;
 
-                    case 0x01:
-                    case 0x05:
+                    case 1:
                         effect2->load(effects_set[i]);
                         if (effects_set[i].effect_num != effects::EMPTY)
                             if (settings.value("Settings/popupChangedWindows").toBool())
                                 effect2->show();
                         break;
 
-                    case 0x02:
-                    case 0x06:
+                    case 2:
                         effect3->load(effects_set[i]);
                         if (effects_set[i].effect_num != effects::EMPTY)
                             if (settings.value("Settings/popupChangedWindows").toBool())
                                 effect3->show();
                         break;
 
-                    case 0x03:
-                    case 0x07:
+                    case 3:
                         effect4->load(effects_set[i]);
                         if (effects_set[i].effect_num != effects::EMPTY)
                         {
@@ -657,7 +649,7 @@ namespace plug
             amp->show();
         }
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 8; i++)
         {
             switch (effects_set[i].fx_order)
             {
