@@ -161,6 +161,11 @@ namespace plug
         connect(loadpres8, SIGNAL(activated()), this, SLOT(load_presets8()));
         connect(loadpres9, SIGNAL(activated()), this, SLOT(load_presets9()));
 
+        QShortcut* loadpreprev = new QShortcut(QKeySequence(Qt::Key_PageUp), this, nullptr, nullptr, Qt::ApplicationShortcut);
+        QShortcut* loadprenet = new QShortcut(QKeySequence(Qt::Key_PageDown), this, nullptr, nullptr, Qt::ApplicationShortcut);
+        connect(loadpreprev, SIGNAL(activated()), this, SLOT(load_preset_previous()));
+        connect(loadprenet, SIGNAL(activated()), this, SLOT(load_preset_next()));
+
         // shortcut to activate buttons
         QShortcut* shortcut = new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A), this);
         connect(shortcut, SIGNAL(activated()), this, SLOT(enable_buttons()));
@@ -517,6 +522,8 @@ namespace plug
                         break;
                 }
             }
+
+            current_amp_slot = slot;
         }
         catch (const std::exception& ex)
         {
@@ -956,6 +963,20 @@ namespace plug
 
         if (settings.contains("DefaultPresets/Preset9"))
             load_from_amp(settings.value("DefaultPresets/Preset9").toInt());
+    }
+
+    void MainWindow::load_preset_next()
+    {
+        QSettings settings;
+
+        load_from_amp(current_amp_slot + 1);
+    }
+
+    void MainWindow::load_preset_previous()
+    {
+        QSettings settings;
+
+        load_from_amp(current_amp_slot - 1);
     }
 }
 

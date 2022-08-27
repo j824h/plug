@@ -102,6 +102,8 @@ namespace plug
         std::unique_ptr<DefaultEffects> deffx;
         QuickPresets* quickpres;
 
+        int current_amp_slot;
+
     private slots:
         void about();
         void show_fx1();
@@ -121,6 +123,9 @@ namespace plug
         void load_presets7();
         void load_presets8();
         void load_presets9();
+
+        void load_preset_next();
+        void load_preset_previous();
 
 
     signals:
