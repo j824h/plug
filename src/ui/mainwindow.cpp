@@ -52,7 +52,7 @@ namespace plug
         {
             if (value == effects::EMPTY)
                 return 0;
-            if ((value >= effects::OVERDRIVE) && (value <= effects::COMPRESSOR))
+            if ((value >= effects::RANGER_BOOST) && (value <= effects::COMPRESSOR))
                 return 1;
             if ((value >= effects::SINE_CHORUS) && (value <= effects::PITCH_SHIFTER))
                 return 2;
