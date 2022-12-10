@@ -162,7 +162,7 @@ namespace plug::com
             recieved_data.push_back(p);
         }
 
-        const std::size_t max_to_receive = (recieved_data.size() > 143 ? 200 : 48);
+        const std::size_t max_to_receive = (recieved_data.size() > 147 ? 200 : 48); // Mustang I V2: 147
         std::vector<Packet<NamePayload>> presetListData;
         presetListData.reserve(max_to_receive);
         std::transform(recieved_data.cbegin(), std::next(recieved_data.cbegin(), max_to_receive), std::back_inserter(presetListData), [](const auto& p)
