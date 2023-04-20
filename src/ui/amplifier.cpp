@@ -183,11 +183,32 @@ namespace plug
         // set properties
         switch (static_cast<amps>(ampValue))
         {
+            case amps::STUDIO_PREAMP:
+                advanced->change_cabinet(value(cabinets::OFF));
+                advanced->change_noise_gate(0);
+                setWindowTitle("Amplifier: Studio Preamp");
+                setAccessibleName("Amplifier: Studio Preamp");
+                break;
+
+            case amps::FENDER_57_CHAMP:
+                advanced->change_cabinet(value(cabinets::cabCHAMP));
+                advanced->change_noise_gate(1);
+                setWindowTitle("Amplifier: Fender '57 Champ");
+                setAccessibleName("Amplifier: Fender '57 Champ");
+                break;
+
             case amps::FENDER_57_DELUXE:
                 advanced->change_cabinet(value(cabinets::cab57DLX));
                 advanced->change_noise_gate(0);
                 setWindowTitle("Amplifier: Fender '57 Delux");
                 setAccessibleName("Amplifier: Fender '57 Delux");
+                break;
+
+            case amps::FENDER_57_TWIN:
+                advanced->change_cabinet(value(cabinets::cab65TWN));
+                advanced->change_noise_gate(0);
+                setWindowTitle("Amplifier: Fender '57 Twin");
+                setAccessibleName("Amplifier: Fender '57 Twin");
                 break;
 
             case amps::FENDER_59_BASSMAN:
@@ -197,11 +218,11 @@ namespace plug
                 setAccessibleName("Amplifier: Fender '59 Bassman");
                 break;
 
-            case amps::FENDER_57_CHAMP:
-                advanced->change_cabinet(value(cabinets::cabCHAMP));
+            case amps::FENDER_65_PRINCETON:
+                advanced->change_cabinet(value(cabinets::cab65PRN));
                 advanced->change_noise_gate(0);
-                setWindowTitle("Amplifier: Fender '57 Champ");
-                setAccessibleName("Amplifier: Fender '57 Champ");
+                setWindowTitle("Amplifier: Fender '65 Princeton");
+                setAccessibleName("Amplifier: Fender '65 Princeton");
                 break;
 
             case amps::FENDER_65_DELUXE_REVERB:
@@ -211,13 +232,6 @@ namespace plug
                 setAccessibleName("Amplifier: Fender '65 Deluxe Reverb");
                 break;
 
-            case amps::FENDER_65_PRINCETON:
-                advanced->change_cabinet(value(cabinets::cab65PRN));
-                advanced->change_noise_gate(0);
-                setWindowTitle("Amplifier: Fender '65 Princeton");
-                setAccessibleName("Amplifier: Fender '65 Princeton");
-                break;
-
             case amps::FENDER_65_TWIN_REVERB:
                 advanced->change_cabinet(value(cabinets::cab65TWN));
                 advanced->change_noise_gate(0);
@@ -225,11 +239,18 @@ namespace plug
                 setAccessibleName("Amplifier: Fender '65 Twin Reverb");
                 break;
 
-            case amps::FENDER_SUPER_SONIC:
-                advanced->change_cabinet(value(cabinets::cabSS112));
-                advanced->change_noise_gate(2);
-                setWindowTitle("Amplifier: Fender Super-Sonic");
-                setAccessibleName("Amplifier: Fender Super-Sonic");
+            case amps::_60S_THRIFT:
+                advanced->change_cabinet(value(cabinets::cab57DLX));
+                advanced->change_noise_gate(0);
+                setWindowTitle("Amplifier: '60s Thrift");
+                setAccessibleName("Amplifier: '60s Thrift");
+                break;
+
+            case amps::BRITISH_WATTS:
+                advanced->change_cabinet(value(cabinets::cab4x12V));
+                advanced->change_noise_gate(0);
+                setWindowTitle("Amplifier: British Watts");
+                setAccessibleName("Amplifier: British Watts");
                 break;
 
             case amps::BRITISH_60S:
@@ -251,6 +272,20 @@ namespace plug
                 advanced->change_noise_gate(1);
                 setWindowTitle("Amplifier: British 80's");
                 setAccessibleName("Amplifier: British 80's");
+                break;
+
+            case amps::BRITISH_COLOUR:
+                advanced->change_cabinet(value(cabinets::cab4x12G));
+                advanced->change_noise_gate(1);
+                setWindowTitle("Amplifier: British Colour");
+                setAccessibleName("Amplifier: British Colour");
+                break;
+
+            case amps::FENDER_SUPER_SONIC:
+                advanced->change_cabinet(value(cabinets::cabSS112));
+                advanced->change_noise_gate(2);
+                setWindowTitle("Amplifier: Fender Super-Sonic");
+                setAccessibleName("Amplifier: Fender Super-Sonic");
                 break;
 
             case amps::AMERICAN_90S:

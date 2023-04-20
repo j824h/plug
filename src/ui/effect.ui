@@ -45,7 +45,37 @@
         </item>
         <item>
          <property name="text">
+          <string>[1] Range Boost</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] Greenbox</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>[1] Overdrive</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] Fuzz</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] Orangebox</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] Blackbox</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] Big Fuzz</string>
          </property>
         </item>
         <item>
@@ -56,11 +86,6 @@
         <item>
          <property name="text">
           <string>[1] Touch Wah</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>[1] Fuzz</string>
          </property>
         </item>
         <item>

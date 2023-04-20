@@ -32,26 +32,36 @@ namespace plug
     {
         switch (id)
         {
-            case 0x67:
-                return amps::FENDER_57_DELUXE;
-            case 0x64:
-                return amps::FENDER_59_BASSMAN;
+            case 0xf1:
+                return amps::STUDIO_PREAMP;
             case 0x7c:
                 return amps::FENDER_57_CHAMP;
-            case 0x53:
-                return amps::FENDER_65_DELUXE_REVERB;
+            case 0x67:
+                return amps::FENDER_57_DELUXE;
+            case 0xf6:
+                return amps::FENDER_57_TWIN;
+            case 0x64:
+                return amps::FENDER_59_BASSMAN;
             case 0x6a:
                 return amps::FENDER_65_PRINCETON;
+            case 0x53:
+                return amps::FENDER_65_DELUXE_REVERB;
             case 0x75:
                 return amps::FENDER_65_TWIN_REVERB;
-            case 0x72:
-                return amps::FENDER_SUPER_SONIC;
+            case 0xf9:
+                return amps::_60S_THRIFT;
+            case 0xff:
+                return amps::BRITISH_WATTS;
             case 0x61:
                 return amps::BRITISH_60S;
             case 0x79:
                 return amps::BRITISH_70S;
             case 0x5e:
                 return amps::BRITISH_80S;
+            case 0xfc:
+                return amps::BRITISH_COLOUR;
+            case 0x72:
+                return amps::FENDER_SUPER_SONIC;
             case 0x5d:
                 return amps::AMERICAN_90S;
             case 0x6d:
@@ -68,14 +78,24 @@ namespace plug
         {
             case 0x00:
                 return effects::EMPTY;
+            case 0x03:
+                return effects::RANGER_BOOST;
+            case 0xba:
+                return effects::GREENBOX;
             case 0x3c:
                 return effects::OVERDRIVE;
+            case 0x1a:
+                return effects::FUZZ;
+            case 0x10:
+                return effects::ORANGEBOX;
+            case 0x11:
+                return effects::BLACKBOX;
+            case 0x0f:
+                return effects::BIG_FUZZ;
             case 0x49:
                 return effects::WAH;
             case 0x4a:
                 return effects::TOUCH_WAH;
-            case 0x1a:
-                return effects::FUZZ;
             case 0x1c:
                 return effects::FUZZ_TOUCH_WAH;
             case 0x88:
