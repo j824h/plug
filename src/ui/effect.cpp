@@ -364,11 +364,11 @@ namespace plug
                 break;
 
             case effects::RANGER_BOOST:
-                setTitleTexts(slot.id() + 1, "Ranger Boost");
+                setTitleTexts(slot.id(), "Ranger Boost");
                 break;
 
             case effects::GREENBOX:
-                setTitleTexts(slot.id() + 1, "Greenbox");
+                setTitleTexts(slot.id(), "Greenbox");
                 break;
 
             case effects::OVERDRIVE:
@@ -376,19 +376,19 @@ namespace plug
                 break;
 
             case effects::FUZZ:
-                setTitleTexts(slot.id() + 1, "Fuzz");
+                setTitleTexts(slot.id(), "Fuzz");
                 break;
 
             case effects::ORANGEBOX:
-                setTitleTexts(slot.id() + 1, "Orangebox");
+                setTitleTexts(slot.id(), "Orangebox");
                 break;
 
             case effects::BLACKBOX:
-                setTitleTexts(slot.id() + 1, "Blackbox");
+                setTitleTexts(slot.id(), "Blackbox");
                 break;
 
             case effects::BIG_FUZZ:
-                setTitleTexts(slot.id() + 1, "Big Fuzz");
+                setTitleTexts(slot.id(), "Big Fuzz");
                 break;
 
             case effects::WAH:
